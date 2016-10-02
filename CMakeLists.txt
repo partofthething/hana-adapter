@@ -25,6 +25,6 @@ message( STATUS "" )
 message( STATUS "-----------------------------------------------------------" ) 
 message( STATUS "" ) 
 
-add_library( hana-adapter INTERFACE ) 
+add_library( hana-adapter INTERFACE GLOBAL ) 
 target_include_directories( hana-adapter INTERFACE src/include ) 
 
