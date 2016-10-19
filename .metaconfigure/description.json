@@ -1,23 +1,7 @@
 {
-"is_external_project": true,
-"include_path": "src/include",
-"unit_tests": {
-"src": [
-"src/test/builtin_array.cpp",
-"src/test/comparable.cpp",
-"src/test/euclidean_ring.cpp",
-"src/test/functional.cpp",
-"src/test/group.cpp",
-"src/test/lazy.cpp",
-"src/test/logical.cpp",
-"src/test/minimal_product.cpp",
-"src/test/monoid.cpp",
-"src/test/orderable.cpp",
-"src/test/repeat.cpp",
-"src/test/ring.cpp",
-"src/test/searchable.cpp"
-]
-},
+"implementation_files": [],
+"target": "include",
+"name": "hana-adapter",
 "header_files": [
 "src/benchmark/measure.hpp",
 "src/doc/tutorial.hpp",
@@ -475,9 +459,26 @@
 "src/include/boost/hana/fwd/core/to.hpp",
 "src/include/boost/hana/fwd/core/when.hpp"
 ],
-"name": "hana-adapter",
+"include_path": "src/include",
+"language_revision": "C++14",
 "language": "c++",
-"target": "include",
-"implementation_files": [],
-"version": "0.0.1"
+"version": "0.0.1",
+"is_external_project": true,
+"unit_tests": {
+"src": [
+"src/test/builtin_array.cpp",
+"src/test/comparable.cpp",
+"src/test/euclidean_ring.cpp",
+"src/test/functional.cpp",
+"src/test/group.cpp",
+"src/test/lazy.cpp",
+"src/test/logical.cpp",
+"src/test/minimal_product.cpp",
+"src/test/monoid.cpp",
+"src/test/orderable.cpp",
+"src/test/repeat.cpp",
+"src/test/ring.cpp",
+"src/test/searchable.cpp"
+]
+}
 }
