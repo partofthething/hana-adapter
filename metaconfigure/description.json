@@ -1,5 +1,4 @@
 {
-"target": "include",
 "unit_tests": {
 "src": [
 "src/test/builtin_array.cpp",
@@ -17,11 +16,10 @@
 "src/test/searchable.cpp"
 ]
 },
-"include_path": "src/include",
-"is_external_project": true,
-"version": "0.0.1",
 "implementation_files": [],
-"name": "hana-adapter",
+"include_path": "src/include",
+"language": "c++",
+"language_revision": "C++14",
 "header_files": [
 "src/benchmark/measure.hpp",
 "src/doc/tutorial.hpp",
@@ -479,6 +477,8 @@
 "src/include/boost/hana/fwd/core/to.hpp",
 "src/include/boost/hana/fwd/core/when.hpp"
 ],
-"language": "c++",
-"language_revision": "C++14"
+"is_external_project": true,
+"name": "hana-adapter",
+"target": "include",
+"version": "0.0.1"
 }
