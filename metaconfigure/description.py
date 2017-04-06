@@ -93,7 +93,6 @@ def evaluate_test_directory(state):
 
     else:
         name = state['name']
-        directory = name
 
     directory = relative_path(state)
     files = []
