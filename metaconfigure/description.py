@@ -122,7 +122,6 @@ def evaluate_directory(state):
         if os.path.isdir(os.path.join(os.getcwd(), name)):
             os.chdir(name)
             if not re.match(state['ignore pattern'], name):
-                print(name)
                 if re.match(state['test pattern'], name):
                     evaluate_test_directory(state)
                 else:
@@ -139,13 +138,13 @@ def collect_driver(state):
             possible_driver = 'src/main.' + extension
             if possible_driver in state['implementation files']:
                 state['driver'] = possible_driver
-                state['implementation files'].remove(driver)
+                state['implementation files'].remove(possible_driver)
                 return
         return
 
 
 def generate(name, language, **kwargs):
-    state = {'strict':True, 'test pattern':'test$', 'ignore pattern':'',
+    state = {'strict':True, 'test pattern':'test$', 'ignore pattern':'$^',
              'is external project':False}
     state.update({'name':name, 'language':language})
     state.update(kwargs)
