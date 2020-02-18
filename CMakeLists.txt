@@ -1,4 +1,22 @@
-cmake_minimum_required( VERSION 3.2 ) 
+
+cmake_minimum_required( VERSION 3.2 )
+set( CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Supported configuration types" FORCE )
+        
+if( NOT is_subproject )
+    if( NOT ROOT_DIRECTORY )
+        set( ROOT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} )
+    endif()
+    if ( NOT PYTHON_EXECUTABLE )
+        find_package( PythonInterp )
+        if ( NOT PYTHONINTERP_FOUND )
+            message( FATAL_ERROR "Python interpreter installation was not found." )
+        endif()
+    endif()
+    execute_process( COMMAND ${PYTHON_EXECUTABLE} ./metaconfigure/signature.py ${CMAKE_BINARY_DIR}/signature
+                        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+                        RESULT_VARIABLE signature_failure )
+    file( READ "${CMAKE_BINARY_DIR}/signature.json" SIGNATURE )
+endif()
 
 project( hana-adapter LANGUAGES CXX )
 get_directory_property( is_subproject PARENT_DIRECTORY )
@@ -23,15 +41,6 @@ execute_process(
     OUTPUT_VARIABLE GIT_HASH
     OUTPUT_STRIP_TRAILING_WHITESPACE
 ) 
-
-message( STATUS "" )
-message( STATUS "-----------------------------------------------------------" )
-message( STATUS "" )
-message( STATUS "hana-adapter" )
-message( STATUS "Git current branch: ${GIT_BRANCH}" )
-message( STATUS "Git commit hash: ${GIT_HASH}" )
-message( STATUS "" )
-message( STATUS "-----------------------------------------------------------" )
 
 add_library( hana-adapter INTERFACE )
 target_sources( hana-adapter INTERFACE
@@ -484,5 +493,14 @@ target_sources( hana-adapter INTERFACE
                 "${CMAKE_CURRENT_SOURCE_DIR}/src/include/boost/hana/fwd/core/tag_of.hpp"
                 "${CMAKE_CURRENT_SOURCE_DIR}/src/include/boost/hana/fwd/core/to.hpp"
                 "${CMAKE_CURRENT_SOURCE_DIR}/src/include/boost/hana/fwd/core/when.hpp" )
+              
+message( STATUS "" )
+message( STATUS "-----------------------------------------------------------" )
+message( STATUS "" )
+message( STATUS "hana-adapter" )
+message( STATUS "Git current branch: ${GIT_BRANCH}" )
+message( STATUS "Git commit hash: ${GIT_HASH}" )
+message( STATUS "" )
+message( STATUS "-----------------------------------------------------------" )
               
 target_include_directories( hana-adapter INTERFACE src/include )
