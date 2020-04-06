@@ -50,3 +50,5 @@ message( STATUS "Git current branch: ${GIT_BRANCH}" )
 message( STATUS "Git commit hash: ${GIT_HASH}" )
 message( STATUS "" )
 message( STATUS "-----------------------------------------------------------" )
+
+target_include_directories( hana-adapter INTERFACE src/include )
