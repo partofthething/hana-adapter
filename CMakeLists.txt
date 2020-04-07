@@ -251,7 +251,7 @@ target_sources( hana-adapter INTERFACE
                 "${CMAKE_CURRENT_SOURCE_DIR}/src/include/boost/hana/detail/nested_to_fwd.hpp"
                 "${CMAKE_CURRENT_SOURCE_DIR}/src/include/boost/hana/detail/preprocessor.hpp"
                 "${CMAKE_CURRENT_SOURCE_DIR}/src/include/boost/hana/detail/std_common_type.hpp"
-                "${CMAKE_CURRENT_SOURCE_DIR}/src/include/boost/hana/detail/struct_macros.erb.hpp"
+                "${CMAKE_CURRENT_SOURCE_DIR}/src/include/boost/hana/detail/struct_macros.hpp.erb"
                 "${CMAKE_CURRENT_SOURCE_DIR}/src/include/boost/hana/detail/struct_macros.hpp"
                 "${CMAKE_CURRENT_SOURCE_DIR}/src/include/boost/hana/detail/type_at.hpp"
                 "${CMAKE_CURRENT_SOURCE_DIR}/src/include/boost/hana/detail/type_foldl1.hpp"
@@ -502,5 +502,5 @@ message( STATUS "Git current branch: ${GIT_BRANCH}" )
 message( STATUS "Git commit hash: ${GIT_HASH}" )
 message( STATUS "" )
 message( STATUS "-----------------------------------------------------------" )
-              
+
 target_include_directories( hana-adapter INTERFACE src/include )
